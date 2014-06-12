@@ -1,0 +1,92 @@
+html, body {
+	height: 100%;
+	margin: 0px;
+	background-color: #222;
+	background: -webkit-radial-gradient(50% 35%, #333, #222);;
+}
+
+div {
+	box-sizing: border-box;
+}
+
+#header {
+	height: 35%;
+	padding: 5%;
+}
+
+#header img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+#content {
+	height: 65%;
+	position: relative;
+}
+
+#links {
+	position: relative;
+	text-align: center;
+	top: 25%;
+}
+
+.link {
+	display: inline-block;
+	position: relative;
+	width: 150px;
+	height: 150px;
+	background-color: #f9f9f9;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.link:not(:last-child) {
+	margin-right: 25px;
+}
+
+.link img {
+	position: absolute;
+	top: 15%;
+	left: 15%;
+	width: 70%;
+	height: 70%;
+}
+
+.wave {
+	width: 110%;
+	height: 110%;
+	position: absolute;
+	left: -5%;
+	top: 100%;
+	transition: .75s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	opacity: 0.8;
+	background-size: 40px 200px;
+}
+
+.link:hover .wave {
+	top: -8%;
+}
+
+#red-wave {
+	background-image: radial-gradient(60px circle at 20px -20px, rgba(255, 255, 255, 0) 50%, #cb2027 50%);
+}
+
+#orange-wave {
+	background-image: radial-gradient(60px circle at 20px -20px, rgba(255, 255, 255, 0) 50%, #d37622 50%);
+}
+
+#yellow-wave {
+	background-image: radial-gradient(60px circle at 20px -20px, rgba(255, 255, 255, 0) 50%, #f2da00 50%);
+}
+
+#in-blue-wave {
+	background-image: radial-gradient(60px circle at 20px -20px, rgba(255, 255, 255, 0) 50%, #006699 50%);
+}
+
+#fb-blue-wave {
+	background-image: radial-gradient(60px circle at 20px -20px, rgba(255, 255, 255, 0) 50%, #3B5998 50%);
+}
+
+#purple-wave {
+	background-image: radial-gradient(60px circle at 20px -20px, rgba(255, 255, 255, 0) 50%, #753c9e 50%);
+}
