@@ -2,7 +2,7 @@ html, body {
 	height: 100%;
 	margin: 0px;
 	background-color: #222;
-	background: -webkit-radial-gradient(50% 35%, #333, #222);;
+	background: radial-gradient(circle at 50% 35%, #333, #222);;
 }
 
 div {
