@@ -1,7 +1,15 @@
 html, body {
+	min-height: 100%;
 	margin: 0px;
 	background-color: #222;
 	background: radial-gradient(circle at 50% 35%, #333, #222);
+}
+
+@media
+only screen and (min-device-width: 960px) {
+	html, body {
+		height: 100%;
+	}
 }
 
 div {
@@ -14,7 +22,7 @@ div {
 
 #header {
 	height: 35%;
-	padding: 1% 5%;
+	padding: 3% 5% 0px;
 	text-align: center;
 }
 
@@ -26,44 +34,51 @@ div {
 }
 
 #content {
-	height: 65%;
 	position: relative;
 }
 
 #links {
 	position: relative;
 	text-align: center;
-	top: 25%;
+	padding-top: 10%;
 	padding-bottom: 5%;
 }
 
  
 /* Smartphones (portrait and landscape) -------------------- */
 @media
-only screen and (min-device-width: 320px) and (max-device-width: 640px),
-only screen and (min-width: 320px) and (max-width: 640px)
- {
+only screen and (min-device-width: 320px) and (max-device-width: 640px) {
+	#links { padding-top: 1%; }
+
+}
+
+
+@media
+only screen and (min-width: 320px) and (max-width: 640px) {
 	#header { height: 15%; }
-	#content { height: 85%; }
-	#links { top: 5%; }
+	#links { padding-top: 5%; }
+}
+
+@media 
+only screen and (min-device-width: 320px) and (max-device-width: 640px) and (orientation: portrait) {
+	#header { padding-top: 8%; }
+	#header { height: 15%; }
+
 }
  
  
 /* Smartphones & Tablets (portrait & landscape) ------------ */
 @media
-only screen and (min-device-width: 640px) and (max-device-width: 960px) {
-	#header { height: 25%; }
-	#content { height: 75%; }
-	#links { top: 10%; }
+only screen and (min-device-width: 640px) and (max-device-width: 960px),
+only screen and (min-width: 640px) and (max-width: 1100px) and (min-device-width: 960px) {
+	#links { padding-top: 5%; }
 	.break-3 { display: block; }
 }
 
 @media
+only screen and (min-device-width: 640px) and (max-device-width: 960px) and (orientation: portrait),
 only screen and (min-width: 640px) and (max-width: 1100px) and (min-device-width: 960px) {
 	#header { height: 25%; }
-	#content { height: 75%; }
-	#links { top: 10%; }
-	.break-3 { display: block; }
 }
  
 
@@ -79,12 +94,22 @@ only screen and (min-width: 640px) and (max-width: 1100px) and (min-device-width
 }
 
 @media
-only screen and (min--moz-device-pixel-ratio: 1.5) and (max-device-width: 960px),
-only screen and (-o-min-device-pixel-ratio: 3/2) and (max-device-width: 960px),
-only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width: 960px),
-only screen and (min-device-pixel-ratio: 1.5) and (max-device-width: 960px),
-only screen and (min-resolution: 1.5dppx) and (max-device-width: 960px) {
+only screen and (min--moz-device-pixel-ratio: 1.5) and (max-device-width: 960px) and (orientation: portrait),
+only screen and (-o-min-device-pixel-ratio: 3/2) and (max-device-width: 960px) and (orientation: portrait),
+only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width: 960px) and (orientation: portrait),
+only screen and (min-device-pixel-ratio: 1.5) and (max-device-width: 960px) and (orientation: portrait),
+only screen and (min-resolution: 1.5dppx) and (max-device-width: 960px) and (orientation: portrait) {
 	.link { width: 300px; height: 300px; margin: 50px; }
+}
+
+@media
+only screen and (min--moz-device-pixel-ratio: 1.5) and (max-device-width: 960px) and (orientation: landscape),
+only screen and (-o-min-device-pixel-ratio: 3/2) and (max-device-width: 960px) and (orientation: landscape),
+only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width: 960px) and (orientation: landscape),
+only screen and (min-device-pixel-ratio: 1.5) and (max-device-width: 960px) and (orientation: landscape),
+only screen and (min-resolution: 1.5dppx) and (max-device-width: 960px) and (orientation: landscape) {
+	.link { width: 200px; height: 200px; margin: 30px; }
+	.break-3 { display: block; }
 }
 
 .link img {
