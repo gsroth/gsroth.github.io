@@ -2,30 +2,28 @@ html, body {
 	height: 100%;
 	margin: 0px;
 	background-color: #222;
-	background: radial-gradient(circle at 50% 35%, #333, #222);;
+	background: radial-gradient(circle at 50% 35%, #333, #222);
 }
 
 div {
 	box-sizing: border-box;
 }
 
+.break-2, .break-3 {
+	display: inline;
+}
+
 #header {
 	height: 35%;
-	padding: 5%;
+	padding: 1% 5%;
+	text-align: center;
 }
-
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-	#header {
-		height: 10%;
-	}
-}
-
 
 #header img {
 	max-height: 100%;
-	max-width: 100%;
+	max-width: 800px;
+	position: relative;
+	bottom: -20%;
 }
 
 #content {
@@ -37,7 +35,38 @@ and (max-device-width : 480px) {
 	position: relative;
 	text-align: center;
 	top: 25%;
+	padding-bottom: 5%;
 }
+
+ 
+/* Smartphones (portrait and landscape) -------------------- */
+@media
+only screen and (min-device-width: 320px) and (max-device-width: 640px),
+only screen and (min-width: 320px) and (max-width: 640px)
+ {
+	#header { height: 15%; }
+	#content { height: 85%; }
+	#links { top: 5%; }
+}
+ 
+ 
+/* Smartphones & Tablets (portrait & landscape) ------------ */
+@media
+only screen and (min-device-width: 640px) and (max-device-width: 960px) {
+	#header { height: 25%; }
+	#content { height: 75%; }
+	#links { top: 10%; }
+	.break-3 { display: block; }
+}
+
+@media
+only screen and (min-width: 640px) and (max-width: 1100px) and (min-device-width: 960px) {
+	#header { height: 25%; }
+	#content { height: 75%; }
+	#links { top: 10%; }
+	.break-3 { display: block; }
+}
+ 
 
 .link {
 	display: inline-block;
@@ -45,9 +74,18 @@ and (max-device-width : 480px) {
 	width: 150px;
 	height: 150px;
 	background-color: #f9f9f9;
-	border-radius: 10px;
+	border-radius: 10%;
 	overflow: hidden;
 	margin: 15px;
+}
+
+@media
+only screen and (min--moz-device-pixel-ratio: 1.5) and (max-device-width: 960px),
+only screen and (-o-min-device-pixel-ratio: 3/2) and (max-device-width: 960px),
+only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width: 960px),
+only screen and (min-device-pixel-ratio: 1.5) and (max-device-width: 960px),
+only screen and (min-resolution: 1.5dppx) and (max-device-width: 960px) {
+	.link { width: 300px; height: 300px; margin: 50px; }
 }
 
 .link img {
@@ -71,6 +109,14 @@ and (max-device-width : 480px) {
 
 .link:hover .wave {
 	top: -8%;
+}
+
+@media
+only screen and (min-device-width: 320px) and (max-device-width: 960px) {
+	.wave {
+		top: 3%;
+		background-size: 40px 400px;
+	}
 }
 
 #red-wave {
