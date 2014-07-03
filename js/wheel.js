@@ -1,3 +1,5 @@
+/* Copyright (c) 2014 Graham Roth */
+
 (function() {
 	window.onload = function() {
 		var wheel = document.getElementById("wheel");
