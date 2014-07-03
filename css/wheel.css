@@ -56,7 +56,7 @@ html, body {
 
 #controls input[type="range"] {
 	-webkit-appearance: none;
-	background-color: #ccc;
+	background-color: rgba(150, 150, 150, 0.5);
 	height: 1px;
 	width: 100%;
 	margin: 35px 0px 14px;
@@ -64,7 +64,7 @@ html, body {
 
 #controls input[type="range"]::-moz-range-track {
 	-moz-appearance: none;
-	background-color: #ccc;
+	background-color: rgba(150, 150, 150, 0.5);
 	height: 1px;
 	width: 100%;
 	margin: 35px 0px 14px;
