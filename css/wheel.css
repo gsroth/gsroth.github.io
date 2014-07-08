@@ -32,6 +32,7 @@ html, body {
 	border-top-right-radius: 100%;
 	border-bottom-left-radius: 100%;
 	-webkit-transform-origin: 100% 100%;
+	transform-origin: 100% 100%;
 }
 
 .petal {
@@ -63,11 +64,9 @@ html, body {
 }
 
 #controls input[type="range"]::-moz-range-track {
-	-moz-appearance: none;
-	background-color: rgba(150, 150, 150, 0.5);
+	background: transparent;
 	height: 1px;
-	width: 100%;
-	margin: 35px 0px 14px;
+	width:100%;
 }
 
 #controls input[type='range']::-webkit-slider-thumb {
@@ -85,15 +84,14 @@ html, body {
 }
 
 #controls input[type="range"]::-moz-range-thumb {
-	-moz-appearance: none;
 	border-radius: 50%;
-	background-color: rgba(255, 255, 255, 0.6);
+	background: rgba(255, 255, 255, 0.75);
 	border: 1px solid #ccc;
 	height: 18px;
 	width: 18px;
 }
 
-#controls input[type='range']::-moz-range-thumb:hover,
-#controls input[type='range']::-moz-range-thumb:focus {
-	background-color: rgba(240, 240, 240, 0.8);
+#controls input[type='range']:hover::-moz-range-thumb,
+#controls input[type='range']:focus::-moz-range-thumb {
+	background-color: rgba(240, 240, 240, 0.9);
 }

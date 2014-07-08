@@ -69,8 +69,10 @@
 				colors["red"] = Math.floor(percent * 255);
 			}
 			var colorString = "rgba(" + colors["red"] + ", " + colors["green"] + ", " + colors["blue"] + ", " + opacity + ")";
+			var transString = "rotate(" + i * degrees + "deg) scaleY(0.71) rotate(45deg)";
 			petal.style.backgroundColor = colorString;
-			petal.style.webkitTransform = "rotate(" + i * degrees + "deg) scaleY(0.71) rotate(45deg)";
+			petal.style.webkitTransform = transString;
+			petal.style.transform = transString;
 
 			wheel.appendChild(petal);
 		}
