@@ -16,6 +16,10 @@
 		background.addEventListener( "mousemove", setColor( wheel, background ) );
 		background.addEventListener( "touchstart", setColor( wheel, background ) );
 		background.addEventListener( "touchmove", setColor( wheel, background ) );
+		
+		numSlider.addEventListener( "mousemove", function(e) { e.stopPropagation(); } );
+		oSlider.addEventListener( "mousemove", function(e) { e.stopPropagation(); } );
+
 		numSlider.addEventListener( "input", function( e ) {
 			numPetals = numSlider.value;
 			var maxO = maxOpacity( numPetals );
@@ -89,8 +93,7 @@
 			var colors = [];
 			while( elem != document.documentElement ) {
 				var elem = document.elementFromPoint(x, y);
-				console.log(x + " " + y);
-				if( elem.nodeName === "BODY" ) break;
+				if( !elem || elem.nodeName === "BODY" ) break;
 				found.push( elem );
 				if( elem.classList.contains( "petal" ) ) {
 					var colorArr = getColors( elem )
