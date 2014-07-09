@@ -1,7 +1,11 @@
 /* Copyright (c) 2014 Graham Roth */
 
 (function() {
-	window.onload = function() {
+
+	window.addEventListener( "load", setup );
+
+	/* Set up initial color wheel, bind events */
+	function setup() {
 		var wheel = document.getElementById("wheel");
 		var background = document.body;
 		var numSlider = document.getElementById("numPetals");
@@ -13,10 +17,11 @@
 		oSlider.max = maxO;
 		makePetals( wheel, numPetals, opacity );
 
-		background.addEventListener( "mousemove", setColor( wheel, background ) );
-		background.addEventListener( "touchstart", setColor( wheel, background ) );
-		background.addEventListener( "touchmove", setColor( wheel, background ) );
+		background.addEventListener( "mousemove", generateColor( background ) );
+		background.addEventListener( "touchstart", generateColor( background ) );
+		background.addEventListener( "touchmove", generateColor( background ) );
 		
+		// If you don't stop bubbling, Chrome doesn't let sliders move 
 		numSlider.addEventListener( "mousemove", function(e) { e.stopPropagation(); } );
 		oSlider.addEventListener( "mousemove", function(e) { e.stopPropagation(); } );
 
@@ -37,14 +42,19 @@
 		} );
 	}
 
+	/* Draw the petals to the wheel element.
+	   num: Number of petals
+	   opacity: Opacity of each petal */
 	function makePetals( wheel, num, opacity ) {
-		/* Uncomment for white background */
+
+		/* Uncomment for white background behind wheel */
 		// for( var i = 0; i < 36; i++ ) {
 		// 	var petal = document.createElement("div");
 		// 	petal.className = "white-petal";
 		// 	petal.style.webkitTransform = "rotate(" + i * 10 + "deg) scaleY(0.71) rotate(45deg)";
 		// 	wheel.appendChild(petal);
 		// }
+
 		var third = num / 3;
 		var degrees = 360 / num;
 		for( var i = 0; i < num; i++ ) {
@@ -84,7 +94,9 @@
 		}
 	}
 
-	function setColor( wheel, background ) {
+	/* Returns the function that determines color based on location in the wheel.
+	   background: Element that changes color */
+	function generateColor( background ) {
 		return function( e ) {
 			e.preventDefault();
 			var x = e.pageX;
@@ -114,6 +126,7 @@
 
 	}
 
+	/* Gets the background color of elem */
 	function getColors( elem ) {
 		var style = elem.style.backgroundColor;
 		if( style.indexOf( "rgba(" ) != 0 ) return null;
@@ -123,6 +136,8 @@
 		return colorString.split(", ");
 	}
 
+	/* Calculates color displayed to the user of overlapping objects 
+	   arr: Array of [red, green, blue, alpha] tuples of elements at a given location. */
 	function getColorFromArray( arr ) {
 		var red = 255;
 		var green = 255;
@@ -142,6 +157,7 @@
 
 	}
 
+	/* Calculates max acceptable opacity based on the number of petals in the wheel */
 	function maxOpacity( num ) {
 		var level = Math.floor(( 8 - Math.sqrt( num ) ) * 1.5) + 2;
 		return level * 0.05;
