@@ -46,7 +46,7 @@ div {
 }
 
  
-/* Smartphones (portrait and landscape) -------------------- */
+/* Smartphones */
 @media
 only screen and (min-device-width: 320px) and (max-device-width: 640px) {
 	#links { padding-top: 1%; }
@@ -68,7 +68,7 @@ only screen and (min-device-width: 320px) and (max-device-width: 640px) and (ori
 }
  
  
-/* Smartphones & Tablets (portrait & landscape) ------------ */
+/* Tablets */
 @media
 only screen and (min-device-width: 640px) and (max-device-width: 960px),
 only screen and (min-width: 640px) and (max-width: 1100px) and (min-device-width: 960px) {

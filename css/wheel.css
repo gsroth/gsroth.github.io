@@ -1,5 +1,6 @@
 html, body {
 	height: 100%;
+	margin: 0px;
 }
 
 #wheel, #controls {
@@ -94,4 +95,20 @@ html, body {
 #controls input[type='range']:hover::-moz-range-thumb,
 #controls input[type='range']:focus::-moz-range-thumb {
 	background-color: rgba(240, 240, 240, 0.9);
+}
+
+/* Smartphones */
+@media
+only screen and (min-device-width: 320px) and (max-device-width: 960px) {
+	#controls {
+		display: none;
+	}
+
+	#wheel {
+		margin-top: -150px;
+		margin-left: -150px;
+		width: 300px;
+		height: 300px;
+	}
+
 }
