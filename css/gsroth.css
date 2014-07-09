@@ -13,6 +13,7 @@ only screen and (min-device-width: 960px) {
 }
 
 div {
+	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
@@ -21,8 +22,8 @@ div {
 }
 
 #header {
-	height: 35%;
-	padding: 3% 5% 0px;
+	height: 40%;
+	padding: 5% 5% 0px;
 	text-align: center;
 }
 
@@ -40,7 +41,7 @@ div {
 #links {
 	position: relative;
 	text-align: center;
-	padding-top: 10%;
+	padding-top: 8%;
 	padding-bottom: 5%;
 }
 
