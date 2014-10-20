@@ -1,8 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,400);
+
 html, body {
 	min-height: 100%;
 	margin: 0px;
 	background-color: #222;
 	background: radial-gradient(circle at 50% 35%, #333, #222);
+	overflow: hidden;
 }
 
 @media
@@ -41,10 +44,9 @@ div {
 #links {
 	position: relative;
 	text-align: center;
-	padding-top: 8%;
+	padding-top: 6%;
 	padding-bottom: 5%;
 }
-
  
 /* Smartphones */
 @media
@@ -82,6 +84,24 @@ only screen and (min-width: 640px) and (max-width: 1100px) and (min-device-width
 	#header { height: 25%; }
 }
  
+.link-elem {
+	display: inline-block;
+}
+
+.link-label {
+	text-align: center;
+	visibility: hidden;
+	color: #f9f9f9;
+	font-weight: 100;
+	font-family: "Lato", "Helvetica", sans-serif;
+	font-size: 16pt;
+	margin: 3% 5%;
+	text-shadow: #dddddd 0px 0px 1px;
+}
+
+.link-elem:hover .link-label {
+	visibility: visible;
+}
 
 .link {
 	display: inline-block;
@@ -91,7 +111,7 @@ only screen and (min-width: 640px) and (max-width: 1100px) and (min-device-width
 	background-color: #f9f9f9;
 	border-radius: 10%;
 	overflow: hidden;
-	margin: 15px;
+	margin: 15px 15px 0px 15px;
 }
 
 @media
@@ -132,6 +152,10 @@ only screen and (min-resolution: 1.5dppx) and (max-device-width: 960px) and (ori
 	background-size: 40px 200px;
 }
 
+/*.wave.moving {
+	-webkit-animation: mini-wavemotion 1s infinite linear;
+}*/
+
 .link:hover .wave {
 	top: -8%;
 }
@@ -166,4 +190,79 @@ only screen and (min-device-width: 320px) and (max-device-width: 960px) {
 
 #purple-wave {
 	background-image: radial-gradient(60px circle at 20px -20px, rgba(255, 255, 255, 0) 50%, #753c9e 50%);
+}
+
+#projects,
+#projects-wave,
+#projects-container {
+	position: absolute;
+	width: 200%;
+	left: -50%;
+	transition: 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+#projects {
+	min-height: 100%;
+	top: 100%;
+}
+
+#projects-wave,
+#projects-container {
+	bottom: auto;
+}
+
+#projects-wave {
+	top: 100px;
+	height: 100px;
+	background-image: radial-gradient(150px circle at 50px -50px, rgba(255, 255, 255, 0) 50%, #f9f9f9 50%);
+	background-size: 100px 2048px;
+	background-repeat: repeat-x;
+	/*-webkit-transform: translateY( 0px );*/
+	-webkit-animation: wavemotion 1s infinite linear;
+}
+
+#projects-container {
+	top: 100px;
+	height: 100%;
+	background-color: #f9f9f9;
+	padding: 20px;
+}
+
+#projects.loading #projects-wave,
+#projects.open #projects-wave {
+	top: 25px;
+	-webkit-transform: translateY( -100px );
+}
+
+#projects-wave.moving {
+}
+
+#projects.loading #projects-container {
+	top: -25px;
+	/*transition-duration: .5s;*/
+}
+
+#projects.open #projects-wave,
+#projects.open #projects-container {
+	top: -100%;
+}
+
+@-webkit-keyframes wavemotion {
+	from {
+		/*background-position: 0px 0px;*/
+		-webkit-transform: translateY( -100px) translateX(0px);
+	}
+	to {
+		/*background-position: 100px 0px;*/
+		-webkit-transform: translateY( -100px) translateX(100px);
+	}
+}
+
+@-webkit-keyframes mini-wavemotion {
+	from {
+		background-position: 0px 0px;
+	}
+	to {
+		background-position: 40px 0px;
+	}
 }
