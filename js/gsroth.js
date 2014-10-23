@@ -3,6 +3,7 @@
 	var portfolio = document.getElementById( "portfolio" );
 	var portfolioContainer = document.getElementById( "projects" );
 	var wave = document.getElementById( "projects-wave" );
+	var portfolioClose = document.getElementById( "projects-close" );
 
 	// If JS enabled, show in-site portfolio. Else link goes to Behance.
 	var icon = portfolio.getElementsByTagName( "img" )[0];
@@ -11,7 +12,7 @@
 	portfolio.onmouseover = startAnimation;
 	portfolio.onmouseout = stopAnimation;
 	portfolio.onclick = showPortfolio;
-	portfolioContainer.onclick = closePortfolio;
+	portfolioClose.onclick = closePortfolio;
 
 	function showPortfolio( e ) {
 		e.preventDefault();
