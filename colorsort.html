@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Put the colors in order!</title>
+  <link rel="stylesheet" href="order.css">
+  <script src="https://cdn.firebase.com/js/client/2.0.5/firebase.js"></script>
+</head>
+<body>
+  <div id="content">
+    <div id="instructions">
+      <h1>Sort the colors!</h1>
+      <h3>Drag and drop the colors into the order that looks the most natural. Transparent colors have a checkerboard pattern behind them; hover to see what they look like on white. When you're done, click the submit button to send in your answers!</h3>
+    </div>
+    <div id="color-container"></div>
+    <input type="button" id="submit-button" class="disabled" value="Submit!">
+  </div>
+  <div id="nextSetOverlay">
+    <div class="modal">
+      <h2>Thanks!</h2>
+      <p>If you'd like, click below to get a new set of colors</p>
+      <button id="next-button">Go!</button>
+    </div>
+  </div>
+  <script src="order.js"></script>
+</body>
+</html>
