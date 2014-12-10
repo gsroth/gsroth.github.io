@@ -15,6 +15,15 @@
 //     return false;
 // }
 
+function shuffleColors( arr ) {
+  for ( var i = arr.length - 1; i > 0; i-- ) {
+    var r = Math.floor( Math.random() * ( i + 1 ) );
+    var temp = arr[i];
+    arr[i] = arr[r];
+    arr[r] = temp;
+  }
+}
+
 function setUserIDCookie( id ) {
   if( localStorage ) {
     localStorage.setItem( "userId", id );
@@ -343,6 +352,7 @@ function makeColorBlock( color ) {
       }
 
       colorSet = snap.val();
+      shuffleColors( colorSet );
 
       var container = document.getElementById( "color-container" );
       blockSet = [];
