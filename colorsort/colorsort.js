@@ -143,7 +143,7 @@ function makeColorBlock( color ) {
       }
       result.push( color );
     }
-    ref.child( "responses/set-" + setNumber ).push( result, askForAnother );
+    ref.child( "responses/set-" + setNumber ).push( {user: userId, time: Date.now(), colors: result}, askForAnother );
     userResponses.push( setNumber );
     userResponses.sort();
     ref.child( "users/" + userId + "/responses" ).set( userResponses, generateErrorFunc( "telling the server that your completed this one" ) );
