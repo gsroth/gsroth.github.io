@@ -1,0 +1,111 @@
+.nav-sign-in {
+  float: right;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .nav-sign-in {
+    margin-right: 15px;
+  }
+
+  .request-time,
+  .status-text {
+    display: none;
+  }
+
+  .status-header-text {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .status-header-icon {
+    display: none;
+  }
+}
+
+section {
+  padding-bottom: 25px;
+}
+
+#submit-section h2 {
+  margin-bottom: 20px;
+}
+
+#requests-section h3 {
+  margin-bottom: 15px;
+}
+
+#request-submit-button {
+  outline: none;
+}
+
+.request-time {
+  margin-left: 0.5em;
+  color: #888;
+}
+
+.status-text {
+  margin-left: 0.5em;
+}
+
+.no-requests-message {
+  padding: 20px;
+}
+
+.no-requests-text {
+  text-align: center;
+  color: #ccc;
+}
+
+#km-login-error-message {
+  display: none;
+  padding: 10px;
+}
+
+#submit-order-button {
+  margin-left: 20px;
+}
+
+.request-status {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.popover {
+  max-width: 100%;
+}
+
+.popover-content {
+  padding: 4px;
+}
+
+.popover .glyphicon {
+  font-size: 1.25em;
+}
+
+.popover .status-text {
+  vertical-align: top;
+}
+
+.km-comments textarea {
+  resize: vertical;
+}
+
+.km-comments .btn.inactive {
+  color: #ccc;
+}
+
+.km-comments .btn.inactive:hover {
+  background: #eee;
+  border: 1px solid #ccc;
+  border-left: 0;
+}
+
+.km-comments .btn.inactive:active {
+  box-shadow: none;
+}
+
+#last-order td {
+  background-color: #eee;
+}
