@@ -5,11 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kitchen Requests!</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/requests-bootstrap/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/requests.css">
   <script src="https://cdn.firebase.com/js/client/2.1.1/firebase.js"></script>
 </head>
 <body>
+
+  <!-- Nav bar -->
   <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
     <div class="navbar-brand">Columbae Kitchen Requests</div>
@@ -17,7 +19,7 @@
     </div>
   </nav>
 
-  <!-- Modal -->
+  <!-- Order review modal -->
   <div class="modal fade" id="order-info-modal" tabindex="-1" role="dialog" aria-labelledby="order-info-modal-header" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
@@ -42,7 +44,7 @@
     </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Logout modal -->
   <div class="modal fade" id="km-logout-modal" tabindex="-1" role="dialog" aria-labelledby="logout-modal-header" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
@@ -62,7 +64,7 @@
     </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Login modal -->
   <div class="modal fade" id="km-login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modal-header" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
@@ -98,6 +100,7 @@
     </div>
   </div>
 
+  <!-- Submit new requests -->
   <section id="submit-section">
     <div class="container">
       <h2>Submit a request:</h2>
@@ -112,6 +115,7 @@
     </div>
   </section>
 
+  <!-- Active requests -->
   <section id="requests-section">
     <div class="container">
       <h3 id="pending-header">Pending requests</h3>
@@ -140,6 +144,7 @@
     </div>
   </section>
 
+  <!-- Most recent order -->
   <section id="last-order-section">
     <div class="container">
       <h3 id="last-order-header">Last order</h3>
@@ -165,12 +170,11 @@
         </div>
         <div class="col-xs-2"></div>
       </div>
-
     </div>
   </section>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/requests-bootstrap/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/requests.js"></script>
 </body>
 </html>

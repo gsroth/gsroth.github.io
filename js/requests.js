@@ -1,6 +1,6 @@
 (function() {
 
-/* Variables */
+/*** Variables ***/
 
 var inputEmpty = true;
 var ref = new Firebase("https://columbae-kitchen.firebaseio.com/");
@@ -34,7 +34,7 @@ var statusNameFromStatus = { pending: "pending",
 };
 var statusPopover = generateStatusPopover();
 
-/* Functions */
+/*** Utilities ***/
 
 function generateStatusPopover() {
   var str = "<div class='btn-group' role='group'>";
@@ -50,58 +50,8 @@ function generateStatusPopover() {
   return str + end;
 }
 
-function openLoginModal( e ) {
-  $( "#km-login-modal" ).modal();
-}
-
-function KMLogout( e ) {
-  ref.unauth();
-
-  $( "#km-logout-modal" ).modal();
-
-}
-
-function loginCallback( error, authData ) {
-  loginButton.removeClass( "active" );
-  if (error) {
-    var mess = $( "#km-login-error-message");
-    console.log("Login Failed!", error);
-    mess.text( error.message );
-    mess.fadeOut( 50 );
-    mess.fadeIn( 150 );
-  } else {
-    console.log("Authenticated successfully with payload:", authData);
-
-    $( "#km-login-modal" ).modal( "hide" );
-
-  }
-}
-
-function KMLogIn( e ) {
-  var email = $( "#km-login-email" ).val();
-  var pass = $( "#km-login-password" ).val();
-  var remember = $( "#km-login-remember" ).is( ":checked" );
-
-  loginButton.addClass( "active" );
-
-  var remObj = {};
-  if( !remember ) {
-    remObj.remember = "sessionOnly";
-  }
-
-  ref.authWithPassword( { email: email, password: pass }, loginCallback, remObj ); 
-}
-
 function escapeHTML( string ) {
   return string.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-
-function clearInputAndGetValue() {
-  var val = inputBox.val();
-  inputBox.val("");
-  inputBox.focus();
-  enableDisableSubmitButton( null );
-  return escapeHTML( String( val ) );
 }
 
 function humanReadableNow() {
@@ -118,6 +68,16 @@ function humanReadableNow() {
   if( m < 10 ) m = "0" + m;
   var hm = h + ":" + m + amPm;
   return md + " " + hm;
+}
+
+/*** Submitting new requests ***/
+
+function clearInputAndGetValue() {
+  var val = inputBox.val();
+  inputBox.val("");
+  inputBox.focus();
+  enableDisableSubmitButton( null );
+  return escapeHTML( String( val ) );
 }
 
 function submitRequest( e ) {
@@ -149,6 +109,8 @@ function keyPressedInInputField( e ) {
     enableDisableSubmitButton( e );
   }
 }
+
+/*** Displaying requests ***/
 
 function buildTableRow( snap ) {
   var elem = snap.val();
@@ -224,39 +186,9 @@ function addTableRow( elem ) {
   };
 }
 
-function submitOrder( e ) {
-  console.log( "submitted order!" );
-  ref.child( "last" ).once( "value", function( snap ) {
-    snap.forEach( function( elem ) {
-      var obj = elem.val();
-      var key = elem.key();
-      ref.child( "archive/" + key ).set( obj, function() {
-        ref.child( "last/" + key ).set( null );
-      } );
-    } );
-    ref.child( "active" ).once( "value", function( snap ) {
-    snap.forEach( function( elem ) {
-      var obj = elem.val();
-      var key = elem.key();
-      switch( obj.status ) {
-        case "pending":
-        case "warning":
-          break;
-        case "willOrder":
-          obj.status = "ordered";
-        case "denied":
-          ref.child( "last/" + key ).set( obj, function() {
-            ref.child( "active/" + key ).set( null );
-          } );
-          break;
-        default:
-          break;
-      }
-    } );
-  } );
-  } );
-  $( "#order-info-modal" ).modal( "hide" );
-}
+/*** Admin Mode ***/
+
+/** Changing status **/
 
 function activatePopoverContents( e ) {
   var key = escapeHTML( e.target.parentNode.parentNode.dataset.key );
@@ -278,6 +210,8 @@ function addStatusChangeButtons() {
   });
   $( "body" ).on( "shown.bs.popover", activatePopoverContents );
 }
+
+/** Commenting **/
 
 function removeCommentFunctionality( index, elem ) {
   if( !$( ".btn", elem ).hasClass( "inactive" ) ) {
@@ -334,6 +268,10 @@ function addCommentFunctionality( index, elem ) {
     elem.appendChild( container )
 }
 
+/** Submitting orders **/
+
+/* Order submission modal */
+
 function buildRequestListItem( elem ) {
   var req = $( ".request-text", elem ).text();
   console.log( req );
@@ -365,6 +303,42 @@ function depopulateOrderInfoModal( e ) {
   $( "#order-info-denied" ).html( "" );
 }
 
+/* Basic order submission */
+
+function submitOrder( e ) {
+  console.log( "submitted order!" );
+  ref.child( "last" ).once( "value", function( snap ) {
+    snap.forEach( function( elem ) {
+      var obj = elem.val();
+      var key = elem.key();
+      ref.child( "archive/" + key ).set( obj, function() {
+        ref.child( "last/" + key ).set( null );
+      } );
+    } );
+    ref.child( "active" ).once( "value", function( snap ) {
+    snap.forEach( function( elem ) {
+      var obj = elem.val();
+      var key = elem.key();
+      switch( obj.status ) {
+        case "pending":
+        case "warning":
+          break;
+        case "willOrder":
+          obj.status = "ordered";
+        case "denied":
+          ref.child( "last/" + key ).set( obj, function() {
+            ref.child( "active/" + key ).set( null );
+          } );
+          break;
+        default:
+          break;
+      }
+    } );
+  } );
+  } );
+  $( "#order-info-modal" ).modal( "hide" );
+}
+
 function addSubmitOrderButton() {
   var submitOrderButton = document.createElement( "button" );
   submitOrderButton.type = "button";
@@ -376,22 +350,65 @@ function addSubmitOrderButton() {
   $( "#pending-header" ).append( submitOrderButton );
 
   $( "#order-info-submit-button" ).on( "click", submitOrder );
-
 }
 
-function enableAdminMode() {
+/** Login/Log out **/
 
+/* Logging out */
+
+function KMLogout( e ) {
+  ref.unauth();
+  $( "#km-logout-modal" ).modal();
+}
+
+/* Logging in */
+
+function openLoginModal( e ) {
+  $( "#km-login-modal" ).modal();
+}
+
+function loginCallback( error, authData ) {
+  loginButton.removeClass( "active" );
+  if (error) {
+    var mess = $( "#km-login-error-message");
+    console.log("Login Failed!", error);
+    mess.text( error.message );
+    mess.fadeOut( 50 );
+    mess.fadeIn( 150 );
+  } else {
+    console.log("Authenticated successfully with payload:", authData);
+
+    $( "#km-login-modal" ).modal( "hide" );
+  }
+}
+
+function KMLogIn( e ) {
+  var email = $( "#km-login-email" ).val();
+  var pass = $( "#km-login-password" ).val();
+  var remember = $( "#km-login-remember" ).is( ":checked" );
+
+  loginButton.addClass( "active" );
+
+  var remObj = {};
+  if( !remember ) {
+    remObj.remember = "sessionOnly";
+  }
+
+  ref.authWithPassword( { email: email, password: pass }, loginCallback, remObj ); 
+}
+
+/** Basic Admin mode initialization **/
+
+function enableAdminMode() {
   addStatusChangeButtons();
   $( "#requests .km-comments" ).each( addCommentFunctionality );
   addSubmitOrderButton();
 
   $( "#km-login-modal-button" ).on( "click", openLoginModal );
   var button = $( "#km-login-modal-button" );
-    button.attr( "id", "logout-modal-button" );
-    button.text( "Logout" );
-    button.off( "click" ).on( "click", KMLogout );
-
-
+  button.attr( "id", "logout-modal-button" );
+  button.text( "Logout" );
+  button.off( "click" ).on( "click", KMLogout );
 }
 
 function disableAdminMode() {
@@ -419,6 +436,8 @@ function authDataCallback( authData ) {
   }
 }
 
+/*** Main setup ***/
+
 function setup() {
 
   inputBox = $( "#request-input-box" );
@@ -444,7 +463,7 @@ function setup() {
 
 }
 
-/* Do stuff */
+/*** Start ***/
 
 $( document ).ready( setup );
 

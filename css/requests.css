@@ -1,3 +1,5 @@
+/** Nav bar **/
+
 .nav-sign-in {
   float: right;
   outline: none;
@@ -7,22 +9,18 @@
   .nav-sign-in {
     margin-right: 15px;
   }
-
-  .request-time,
-  .status-text {
-    display: none;
-  }
-
-  .status-header-text {
-    display: none;
-  }
 }
 
-@media (min-width: 768px) {
-  .status-header-icon {
-    display: none;
-  }
+/** Modals **/
+
+#km-login-error-message {
+  display: none;
+  padding: 10px;
 }
+
+/** Requests **/
+
+/* Base styles */
 
 section {
   padding-bottom: 25px;
@@ -45,6 +43,11 @@ section {
   color: #888;
 }
 
+.request-status {
+  display: inline-block;
+  cursor: pointer;
+}
+
 .status-text {
   margin-left: 0.5em;
 }
@@ -58,18 +61,14 @@ section {
   color: #ccc;
 }
 
-#km-login-error-message {
-  display: none;
-  padding: 10px;
+#last-order td {
+  background-color: #eee;
 }
+
+/* Admin-mode addons */
 
 #submit-order-button {
   margin-left: 20px;
-}
-
-.request-status {
-  display: inline-block;
-  cursor: pointer;
 }
 
 .popover {
@@ -106,6 +105,18 @@ section {
   box-shadow: none;
 }
 
-#last-order td {
-  background-color: #eee;
+/* Media queries */
+
+@media (max-width: 768px) {
+  .request-time,
+  .status-text,
+  .status-header-text {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .status-header-icon {
+    display: none;
+  }
 }
