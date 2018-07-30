@@ -1,114 +1,46 @@
 <!DOCTYPE html>
-<!-- Copyright (c) 2014 Graham Roth -->
+<!-- Copyright (c) 2018 Graham Roth -->
 <html>
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51925433-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-51925433-1');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Graham Roth</title>
-  <meta name="description" content="Congratulations, you found Graham's website! This is the personal website of Graham Roth: dreamer, designer, product person, foodie, actor, singer, builder, coder, aerialist, and so much more!">
+  <meta name="description" content="Congratulations, you found Graham's website! This is the personal website of Graham Roth, a product manager, but also a dreamer, designer, foodie, actor, singer, builder, coder, aerialist, and so much more!">
   <link rel="stylesheet" href="css/gsroth.css">
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-51925433-1', 'gsroth.com');
-  ga('require', 'displayfeatures');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
-  <div id="body-content">
-    <div id="header">
-      <img src="images/name.svg" alt="Graham Roth">
+  <div id="header">
+    <p id="name">Graham Roth</p>
+    <p id="title">Product Manager</p>
+  </div>
+  <div id="content">
+    <p id="intro">Hi! I’m Graham. I’m a technical product manager with a passion for data-informed, user-centered design, looking to make a positive, meaningful impact on the world.</p>
+    <p id="more-info-text">For more info:</p>
+    <div class="more-info-links">
+      <a class="info-link" href="files/Graham-Roth-resume.pdf" target="_blank">See my resume</a>
+      <a class="info-link" href="http://www.linkedin.com/in/grahamroth/">Find me on LinkedIn</a>
+      <a class="info-link" href="mailto:graham@gsroth.com">Email me</a>
     </div>
-    <div id="content">
-      <div id="links">
-        <div class="square-elem">
-          <a href="http://www.pinterest.com/gsroth/" class="square link" id="pinterest" rel="me">
-            <div class="wave" id="red-wave"></div>
-            <img src="images/pinterest.svg" alt="Pinterest">
-          </a>
-          <p class="square-label">
-            Pinterest
-          </p>
-        </div>
-        <div class="square-elem">
-          <a href="mailto:graham@gsroth.com" class="square link" id="email" rel="me">
-            <div class="wave" id="orange-wave"></div>
-            <img src="images/email.svg" alt="Email">
-          </a>
-          <p class="square-label">
-            Email
-          </p>
-        </div>
-        <div class="break-2"></div>
-        <div class="square-elem">
-          <a href="http://instagram.com/nobutactually" class="square link" id="instagram" rel="me">
-            <div class="wave" id="yellow-wave"></div>
-            <img src="images/instagram.svg" alt="Instagram">
-          </a>
-          <p class="square-label">
-            Instagram
-          </p>
-        </div>
-        <div class="break-3"></div>
-        <div class="square-elem">
-          <a href="http://www.linkedin.com/in/grahamroth/" class="square link" id="linkedin" rel="me">
-            <div class="wave" id="in-blue-wave"></div>
-            <img src="images/linkedin.svg" alt="Linked In">
-          </a>
-          <p class="square-label">
-            LinkedIn
-          </p>
-        </div>
-        <div class="break-2"></div>
-        <div class="square-elem">
-          <a href="http://www.facebook.com/gsroth" class="square link" id="facebook" rel="me">
-            <div class="wave" id="fb-blue-wave"></div>
-            <img src="images/fb.svg" alt="LinkedIn">
-          </a>
-          <p class="square-label">
-            Facebook
-          </p>
-        </div>
-        <div class="square-elem">
-          <a href="http://be.net/gsroth" class="square link" id="portfolio" rel="me">
-            <div class="wave" id="purple-wave"></div>
-            <img src="images/behance.svg" alt="Behance">
-          </a>
-          <p class="square-label">
-            Portfolio
-          </p>
-        </div>
-      </div>
+    <p id="side-projects-text">Or, check out some of my side-projects:</p>
+    <div class="side-projects-links">
+      <a class="project-link" href="wheel">
+        <img src="images/wheel.svg">
+      </a>
+      <a class="project-link" href="colorsort">
+        <img src="images/sort.svg">
+      </a>
+      <a class="project-link" href="https://www.muskmusk.com">
+        <img src="images/perfume.svg">
+      </a>
     </div>
   </div>
-  <div id="projects">
-    <div id="projects-wave"></div>
-    <div id="projects-container">
-      <div id="projects-close">
-        <span>Close</span>
-      </div>
-      <div id="project-categories">
-<!--         <div class="square-elem">
-          <div class="square category"></div>
-          <p class="square-label"></p>
-        </div>
-        <div class="square-elem">
-          <div class="square category"></div>
-          <p class="square-label"></p>
-        </div>
-        <div class="square-elem">
-          <div class="square category"></div>
-          <p class="square-label"></p>
-        </div> -->
-      </div>
-    <!-- Currently under construction. Check back soon! -->
-    </div>
-  </div>
-  <!--script type="text/javascript" src="js/gsroth.js"></script-->
 </body>
 </html>
