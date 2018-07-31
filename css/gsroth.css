@@ -26,6 +26,13 @@ p, span, a {
 	margin: 0;
 }
 
+@media (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 812px),
+       (min-resolution: 192dpi) and (max-device-width: 812px) {
+	p, span, a {
+		font-weight: 300;
+	}
+}
+
 a {
 	text-decoration: none;
 }
@@ -100,13 +107,11 @@ only screen and (min-width: 640px) {
 }
 
 .info-link:hover,
-.info-link:focus,
 .info-link:active {
   color: #17afae;
 }
 
 .info-link:hover:before,
-.info-link:focus:before,
 .info-link:active:before {
   transform: scaleX(1);
 }
