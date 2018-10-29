@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:100,300);
+@import url(https://fonts.googleapis.com/css?family=Lato:300);
 
 html, body {
 	position: relative;
@@ -21,17 +21,17 @@ div {
 p, span, a {
 	font-family: "Lato", "Helvetica", sans-serif;
 	font-size: 1.5em;
-	font-weight: 100;
+	/*font-weight: 100;*/
 	color: #ffffff;
 	margin: 0;
 }
 
-@media (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 812px),
+/*@media (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 812px),
        (min-resolution: 192dpi) and (max-device-width: 812px) {
 	p, span, a {
 		font-weight: 300;
 	}
-}
+}*/
 
 a {
 	text-decoration: none;
@@ -43,7 +43,7 @@ a {
 
 #name {
 	font-size: 4.5em;
-	font-weight: 300;
+	/*font-weight: 300;*/
 	margin-bottom: 0.25em;
 }
 
